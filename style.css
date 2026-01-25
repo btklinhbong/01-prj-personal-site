@@ -1,1 +1,470 @@
-/* Add you CSS here */
+/* ============================================
+  PERSONAL PORTFOLIO WEBSITE - STYLES
+  Color Theme: Dark Fantasy RPG
+  ============================================ */
+
+/* ============ RESET & GLOBAL STYLES ============ */
+/* Remove default margins and padding from all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set base styles for the entire page */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #d4a574;
+  background-color: #1a1a24;
+}
+
+/* ============ COLOR VARIABLES ============ */
+/* Define colors used throughout the site */
+:root {
+  --bg: #1a1a24;            /* Deep dark gray background */
+  --panel: #2d2a3d;         /* Dark purple panel */
+  --accent: #d4a574;        /* Gold/amber accent */
+  --accent-dark: #a67c3d;   /* Darker gold for hover */
+  --muted: #8b7a6b;         /* Muted bronze */
+  --white: #ffffff;         /* Pure white highlights */
+}
+
+/* ============ NAVIGATION BAR ============ */
+/* Fixed navigation bar that stays at top */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--panel);
+  color: var(--white);
+  padding: 1rem 0;
+  z-index: 1000;             /* Keep nav on top of other content */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  border-bottom: 2px solid var(--accent);
+}
+
+/* Container for nav content */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Logo styling */
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Icon next to logo */
+.logo-icon {
+  margin-right: 0.5rem;
+  font-size: 1.8rem;
+}
+
+/* Navigation links list */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+/* Individual navigation link */
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Navigation link hover effect */
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* ============ MAIN CONTENT CONTAINER ============ */
+/* Container class for consistent width and centering */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* ============ HERO SECTION ============ */
+/* Main banner section with large heading */
+.hero {
+  background: linear-gradient(135deg, #141c2d, #0f1624);
+  color: var(--accent);
+  padding-top: 100px;        /* Account for fixed navbar */
+  padding-bottom: 4rem;
+  text-align: center;
+  border-bottom: 3px solid var(--accent);
+}
+
+/* Hero content wrapper */
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  flex-wrap: wrap;           /* Stack on smaller screens */
+}
+
+/* Hero image styling */
+.hero-image {
+  flex: 1;
+  min-width: 200px;
+}
+
+.hero-image img {
+  max-width: 250px;
+  width: 100%;
+  border-radius: 50%;        /* Make image circular */
+  border: 4px solid var(--accent);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+/* Hero text content */
+.hero-text {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* Large heading with name */
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+/* Tagline under name */
+.tagline {
+  font-size: 1.2rem;
+  color: var(--white);
+}
+
+/* ============ ABOUT SECTION ============ */
+/* Player biography section */
+.about {
+  background-color: var(--panel);
+  padding: 4rem 2rem;
+  border-top: 3px solid var(--accent);
+}
+
+/* About section heading */
+.about h2 {
+  color: var(--accent);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* About content wrapper */
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* "Game On!" greeting */
+.bio-intro {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+/* Bio paragraph text */
+.bio-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--muted);
+  text-align: justify;
+}
+
+/* ============ SKILLS SECTION ============ */
+/* Technical skills display */
+.skills {
+  background-color: var(--bg);
+  padding: 4rem 2rem;
+  border-top: 3px solid var(--accent);
+}
+
+/* Skills section heading */
+.skills h2 {
+  color: var(--accent);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Skills list container */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Individual skill item styling */
+.skill-item {
+  background-color: transparent;
+  color: var(--accent);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 10px rgba(212, 165, 116, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Icon styling within skill items */
+.skill-item i {
+  font-size: 1.8rem;
+  transition: transform 0.2s ease;
+}
+
+/* Skill text styling */
+.skill-item span {
+  font-size: 0.95rem;
+}
+
+/* Skill item hover effect */
+.skill-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(212, 165, 116, 0.6), 0 4px 14px rgba(0, 0, 0, 0.35);
+  background-color: rgba(197, 155, 61, 0.12);
+}
+
+/* Icon animation on hover */
+.skill-item:hover i {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* ============ PROJECTS SECTION ============ */
+/* Portfolio projects showcase */
+.projects {
+  background-color: var(--panel);
+  padding: 4rem 2rem;
+  border-top: 3px solid var(--accent);
+}
+
+/* Projects section heading */
+.projects h2 {
+  color: var(--accent);
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+/* Grid layout for project cards */
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual project card */
+.project-card {
+  background-color: var(--bg);
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  padding: 2rem;
+  flex: 1;
+  min-width: 280px;
+  max-width: 350px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 15px rgba(212, 165, 116, 0.3);
+}
+
+/* Project card hover effect */
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(212, 165, 116, 0.7), 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Project card header */
+.project-header {
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 1rem;
+}
+
+/* Project title */
+.project-card h3 {
+  color: var(--accent);
+  font-size: 1.3rem;
+}
+
+/* Project description text */
+.project-description {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  min-height: 80px;
+}
+
+/* ============ BUTTONS ============ */
+/* "View Project" button styling */
+.btn {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--accent);
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  border: 2px solid var(--accent);
+}
+
+/* Button hover effect */
+.btn:hover {
+  background-color: rgba(197, 155, 61, 0.1);
+  color: var(--white);
+  box-shadow: 0 0 12px rgba(197, 155, 61, 0.4);
+}
+
+/* ============ CONTACT SECTION ============ */
+/* Contact information section */
+.contact {
+  background-color: var(--bg);
+  padding: 4rem 2rem;
+  text-align: center;
+  border-top: 3px solid var(--accent);
+}
+
+/* Contact section heading */
+.contact h2 {
+  color: var(--accent);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Contact paragraph text */
+.contact p {
+  color: var(--muted);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* Contact info with email link */
+.contact-info {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Email link styling */
+.contact-info a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent);
+}
+
+.contact-info a:hover {
+  color: var(--white);
+}
+
+/* ============ FOOTER ============ */
+/* Page footer */
+.footer {
+  background-color: var(--panel);
+  color: var(--accent);
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 2px solid var(--accent);
+}
+
+/* ============ RESPONSIVE DESIGN ============ */
+/* Styles for tablets and small screens */
+@media (max-width: 768px) {
+  /* Adjust navbar for mobile */
+  .nav-links {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Stack hero content vertically on mobile */
+  .hero-content {
+    gap: 1.5rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  
+  .tagline {
+    font-size: 1rem;
+  }
+  
+  /* Adjust heading sizes */
+  .about h2,
+  .skills h2,
+  .projects h2,
+  .contact h2 {
+    font-size: 1.5rem;
+  }
+  
+  /* Adjust padding for smaller screens */
+  .container {
+    padding: 1.5rem;
+  }
+  
+  /* Project cards take full width on mobile */
+  .project-card {
+    max-width: 100%;
+    min-width: 100%;
+  }
+}
+
+/* Styles for very small screens (phones) */
+@media (max-width: 480px) {
+  /* Smaller heading on mobile */
+  .hero-text h1 {
+    font-size: 1.5rem;
+  }
+  
+  /* Adjust nav spacing */
+  .nav-container {
+    padding: 0 1rem;
+  }
+  
+  .nav-links {
+    gap: 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .logo {
+    font-size: 1rem;
+  }
+  
+  /* Adjust hero padding */
+  .hero {
+    padding-top: 80px;
+    padding-bottom: 2rem;
+  }
+  
+  /* Hide logo text on very small screens */
+  .logo-text {
+    display: none;
+  }
+}
