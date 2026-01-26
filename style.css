@@ -109,9 +109,10 @@ body {
 /* Hero content wrapper */
 .hero-content {
   display: flex;
+  flex-direction: column;    /* Stack image and text vertically */
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 1rem;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -125,6 +126,7 @@ body {
 }
 
 .hero-image img {
+  margin-top: 1rem;
   max-width: 250px;
   width: 100%;
   border-radius: 50%;        /* Make image circular */
