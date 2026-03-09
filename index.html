@@ -3,182 +3,234 @@
 <head>
   <!-- Character encoding for the webpage -->
   <meta charset="UTF-8">
-  
+
   <!-- Makes the site responsive on mobile devices -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Tong Khanh Linh Bui - RPG Portfolio</title>
-  
+
+  <title>Tong Bui | Editorial Portfolio Mockup</title>
+
   <!-- Link to the external CSS file for styling -->
   <link rel="stylesheet" href="style.css">
-  
-  <!-- Font Awesome icon library for skill icons -->
+
+  <!-- Font Awesome icon library for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-  <!-- ============ NAVIGATION BAR ============ -->
-  <!-- Fixed navigation that stays at the top when scrolling -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <!-- Logo/Brand section with computer icon -->
-      <div class="logo">
-        <span class="logo-icon">👾</span>
-        <span class="logo-text">Tong Bui</span>
-      </div>
-      
-      <!-- Navigation menu links -->
+  <!-- ============ TOP NAVIGATION ============ -->
+  <header class="site-header">
+    <nav class="navbar">
+      <!-- Site title on the left in a refined serif -->
+      <div class="site-title">Tong Bui</div>
+
+      <!-- Navigation links on the right + mustard CTA pill -->
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About me</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact" class="cta-pill">Get in touch</a></li>
       </ul>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
   <!-- ============ HERO SECTION ============ -->
-  <!-- Main banner section with name and professional photo -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <!-- Professional headshot image placeholder -->
-      <div class="hero-image">
-        <img src="img/me1.jpeg" alt="Professional headshot of Tong Khanh Linh Bui">
-      </div>
-      
-      <!-- Main heading with name -->
-      <div class="hero-text">
-        <h1>Tong Khanh Linh Bui</h1>
-        <p class="tagline">Exploring Worlds | Computer Engineer</p>
-      </div>
+  <section class="hero" id="home">
+    <!-- Repeated outline word behind the main title for depth -->
+    <div class="hero-outline">PORTFOLIO</div>
+    <div class="hero-outline second">PORTFOLIO</div>
+
+    <!-- Main oversized hero title -->
+    <h1 class="hero-title">PORTFOLIO</h1>
+
+    <!-- Compact social handles at top-right of hero -->
+    <div class="social-handles">
+      <p>@btklinhbong</p>
+      <p>github.com/btklinhbong</p>
+      <p>Open-source projects</p>
     </div>
+
+    <!-- Layered decorative blocks -->
+    <div class="green-band"></div>
+    <div class="orange-overlay">
+      <!-- Portrait photo inside the orange overlay block -->
+      <img src="img/me2.png" alt="Photo of Tong Bui" class="overlay-photo">
+    </div>
+
+    <!-- Mustard decorative stars -->
+    <span class="star star-one">✶</span>
+    <span class="star star-two">✶</span>
+    <span class="star star-three">✶</span>
+
+    <!-- Floating circular scroll cue -->
+    <div class="scroll-badge">Scroll down</div>
   </section>
 
-  <!-- ============ ABOUT SECTION ============ -->
-  <!-- Player biography section -->
-  <section id="about" class="about">
-    <div class="container">
-      <h2>Player Profile</h2>
-      
-      <div class="about-content">
-        <!-- Main bio paragraph -->
-        <p class="bio-intro">Game On!</p>
-        
-        <p class="bio-text">
-          I am a Computer Engineering student at Texas A&M University on a quest to bridge hardware 
-          and software for immersive experiences. With a foundation in digital logic and programming, 
-          I craft solutions that bring interactive ideas to life. I enjoy teaming up to tackle tough 
-          challenges and leveling up through each build.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SKILLS SECTION ============ -->
-  <!-- Display of technical skills -->
-  <section id="skills" class="skills">
-    <div class="container">
-      <h2>Abilities</h2>
-      
-      <!-- Skills displayed as a list with card-style presentation -->
-      <ul class="skills-list">
-        <li class="skill-item">
-          <i class="fas fa-code"></i>
-          <span>C++</span>
-        </li>
-        <li class="skill-item">
-          <i class="fas fa-mug-hot"></i>
-          <span>Java</span>
-        </li>
-        <li class="skill-item">
-          <i class="fas fa-microchip"></i>
-          <span>Verilog</span>
-        </li>
-        <li class="skill-item">
-          <i class="fab fa-python"></i>
-          <span>Python</span>
-        </li>
-        <li class="skill-item">
-          <i class="fas fa-file-code"></i>
-          <span>HTML</span>
-        </li>
-        <li class="skill-item">
-          <i class="fas fa-palette"></i>
-          <span>CSS</span>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ============ PROJECTS SECTION ============ -->
-  <!-- Portfolio projects displayed as cards -->
-  <section id="projects" class="projects">
-    <div class="container">
-      <h2>Quest Log</h2>
-      
-      <!-- Projects grid container -->
-      <div class="projects-grid">
-        
-        <!-- Project 1 Card -->
-        <article class="project-card">
-          <div class="project-header">
-            <h3>Shrink-Plastic Behavior Calculator</h3>
-          </div>
-          <p class="project-description">
-            Developed a C++ calculator to model asymmetric shrinkage in commercial shrink plastic sheets. 
-            Users can input brand-specific test data to calculate precise shrink ratios and simulate final 
-            image dimensions, supporting layout optimization and distortion control across different brands.
-          </p>
-          <a href="#" class="btn">View Project</a>
-        </article>
-        
-        <!-- Project 2 Card -->
-        <article class="project-card">
-          <div class="project-header">
-            <h3>C++ Library Management System</h3>
-          </div>
-          <p class="project-description">
-            Engineered a lightweight C++ application to manage dynamic book records with features including 
-            add, remove, search, and update. Built with object-oriented design, custom file-based storage, 
-            and an intuitive menu-driven interface, managing over 100 book entries efficiently.
-          </p>
-          <a href="#" class="btn">View Project</a>
-        </article>
-        
-        <!-- Project 3 Card -->
-        <article class="project-card">
-          <div class="project-header">
-            <h3>Future Project</h3>
-          </div>
-          <p class="project-description">
-            More exciting projects coming soon! Check back later to see what new challenges 
-            I'm tackling in computer engineering and software development.
-          </p>
-          <a href="#" class="btn">Coming Soon</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CONTACT SECTION ============ -->
-  <!-- Call to action for contact -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2>Guild Message Board</h2>
-      <p>Ready to team up for the next quest? Drop me a line.</p>
-      <p class="contact-info">
-        Email: <a href="mailto:tongkhanhlinhbui@tamu.edu">tongkhanhlinhbui@tamu.edu</a><br>
-        LinkedIn: <a href="https://www.linkedin.com/in/tong-khanh-linh-bui/" target="_blank">linkedin.com/in/tong-khanh-linh-bui</a>
+  <!-- ============ INTRO SECTION ============ -->
+  <section class="intro" id="about">
+    <div class="intro-left">
+      <p class="kicker">Introduction</p>
+      <h2>Hello, I’m Tong!</h2>
+      <p class="intro-bio">
+        I am passionate about building technology that connects software, hardware, and art.
+        I enjoy developing software that solves real problems, exploring hardware systems to
+        understand how things work at a deeper level, and using visual design to make ideas
+        clear, creative, and human-centered.
       </p>
+
+      <!-- Search-style rounded link button with icon and URL -->
+      <a href="https://github.com/btklinhbong" class="search-link" target="_blank">
+        <i class="fas fa-search"></i>
+        github.com/btklinhbong
+      </a>
     </div>
+
+    <div class="intro-right">
+      <!-- Layered green rectangular cards -->
+      <div class="card-layer layer-back"></div>
+      <div class="card-layer layer-middle"></div>
+      <div class="card-layer layer-front">
+        <span class="date-tag">Mar 2026</span>
+        <img src="img/me1.jpeg" alt="Photo of Tong Bui" class="card-photo">
+      </div>
+
+      <!-- Black overlap card for contact -->
+      <div class="contact-card" id="contact">
+        <h3>Contact</h3>
+        <p>tongkhanhlinhbui@tamu.edu</p>
+        <p>linkedin.com/in/tong-khanh-linh-bui</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION & SKILLS BAND ============ -->
+  <section class="resume-band" id="resume">
+    <!-- Repeated outline background typography -->
+    <div class="resume-outline">RESUME</div>
+
+    <div class="resume-columns">
+      <!-- Left side: education list with year bullets -->
+      <article class="resume-left">
+        <h3>Education</h3>
+        <ul class="year-list">
+          <li><span>2025</span> Started Computer Engineering program at Texas A&M University</li>
+        </ul>
+      </article>
+
+      <!-- Right side: technical skills -->
+      <article class="resume-right">
+        <h3>Technical skills</h3>
+
+        <h4>Software skills</h4>
+        <div class="dot-line"></div>
+        <div class="software-icons">
+          <span><i class="far fa-circle"></i> Kirita</span>
+          <span><i class="far fa-circle"></i> Figma</span>
+          <span><i class="far fa-circle"></i> Visual Studio</span>
+          <span><i class="far fa-circle"></i> Blender</span>
+        </div>
+
+        <h4>Coding skills</h4>
+        <div class="dot-line"></div>
+        <p class="coding-list">Java · Verilog · C · C++ · CSS · HTML · JavaScript</p>
+
+        <div class="skill-tags">
+          <span>Visual design</span>
+          <span>UI/UX</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE SECTION ============ -->
+  <section class="experience" id="work">
+    <article class="experience-card">
+      <h2>Experience</h2>
+
+      <!-- Vertical timeline items -->
+      <div class="timeline-item">
+        <p class="timeline-year">2026</p>
+        <div>
+          <h4>Website and Game Development Projects</h4>
+          <p>Built interactive websites and game projects, focusing on clean UI, user experience, and frontend implementation.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-year">2025</p>
+        <div>
+          <h4>Computer Engineering Student · Texas A&amp;M University</h4>
+          <p>Built coursework and personal projects using Java, Verilog, C, C++, HTML, CSS, and JavaScript.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-year">2024</p>
+        <div>
+          <h4>C++ Project · Library Management System</h4>
+          <p>Built a C++ system to manage a book library, including features for organizing records and tracking items.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-year">2024</p>
+        <div>
+          <h4>Leader and Cultural Events Coordinator · Club of Other Language (COOL)</h4>
+          <p>Aug 2024 - Dec 2024 | Texas, United States (On-site). Created and led semester-long events, including games and cultural showcases, to bring together students from different backgrounds.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-year">2020-2023</p>
+        <div>
+          <h4>Live Event Technology Operator · Arlington Baptist Church</h4>
+          <p>Aug 2020 - Nov 2023 | Arlington, Texas, United States (On-site). Operated live streaming, audio, and music control systems for weekly services attended by 300+ people, maintaining 100% uptime through proactive troubleshooting.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-year">2020-2022</p>
+        <div>
+          <h4>Student Tech and CS Contributor · Richland High School</h4>
+          <p>Aug 2020 - Jun 2022 | North Richland Hills, Texas, United States (On-site). Provided classroom tech support and led Java-based projects aligned with AP CS curriculum. Qualified for a regional CS competition and designed a club logo used by 30+ members.</p>
+        </div>
+      </div>
+
+      <!-- Chunky rounded black action pills -->
+      <div class="experience-actions">
+        <a href="#" class="dark-pill">Add experience</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============ LOWER 3-COLUMN GRID ============ -->
+  <section class="info-grid">
+    <article>
+      <h3>Language</h3>
+      <div class="dot-line light"></div>
+      <p><i class="far fa-circle"></i> English</p>
+      <p><i class="far fa-circle"></i> Vietnamese</p>
+    </article>
+
+    <article>
+      <h3>Activities</h3>
+      <div class="dot-line light"></div>
+      <p><i class="far fa-star"></i> COOL Club leadership</p>
+      <p><i class="far fa-star"></i> Cultural event planning</p>
+    </article>
+
+    <article>
+      <h3>Hobbies & Interests</h3>
+      <div class="dot-line light"></div>
+      <p><i class="far fa-heart"></i> Drawing and illustration</p>
+      <p><i class="far fa-heart"></i> Shrink plastic crafts</p>
+      <p><i class="far fa-heart"></i> Hologram and 3D printing</p>
+      <p><i class="far fa-heart"></i> Piano</p>
+    </article>
   </section>
 
   <!-- ============ FOOTER ============ -->
-  <!-- Footer with copyright information -->
   <footer class="footer">
-    <p>&copy; 2026 Tong Khanh Linh Bui. All rights reserved.</p>
+    <p>&copy; 2026 Tong Bui. One-page editorial portfolio mockup.</p>
   </footer>
-
 </body>
 </html>

@@ -1,472 +1,823 @@
 /* ============================================
   PERSONAL PORTFOLIO WEBSITE - STYLES
-  Color Theme: Dark Fantasy RPG
+  Theme: Bold Editorial Retro-Modern
   ============================================ */
 
-/* ============ RESET & GLOBAL STYLES ============ */
-/* Remove default margins and padding from all elements */
+/* ============ RESET ============ */
+/* Remove default browser spacing and set box model */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Set base styles for the entire page */
-body {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  color: #d4a574;
-  background-color: #1a1a24;
-}
-
-/* ============ COLOR VARIABLES ============ */
-/* Define colors used throughout the site */
+/* ============ COLOR & TYPOGRAPHY VARIABLES ============ */
+/* Define the requested two-tone base and accent colors */
 :root {
-  --bg: #1a1a24;            /* Deep dark gray background */
-  --panel: #2d2a3d;         /* Dark purple panel */
-  --accent: #d4a574;        /* Gold/amber accent */
-  --accent-dark: #a67c3d;   /* Darker gold for hover */
-  --muted: #8b7a6b;         /* Muted bronze */
-  --white: #ffffff;         /* Pure white highlights */
+  --forest: #1f3a2e;       /* Deep forest green base */
+  --forest-dark: #162a21;  /* Darker green for depth */
+  --cream: #f6efdf;        /* Warm cream base */
+  --mustard: #f1b72c;      /* Vivid mustard yellow accent */
+  --coral: #ef8b74;        /* Soft coral accent */
+  --burnt-orange: #b96939; /* Burnt orange overlay */
+  --ink: #121212;          /* Near-black text */
+  --white: #ffffff;        /* White text */
+  --muted: #4a4a43;        /* Muted paragraph color */
 }
 
-/* ============ NAVIGATION BAR ============ */
-/* Fixed navigation bar that stays at top */
-.navbar {
-  position: fixed;
-  top: 0;
+/* ============ GLOBAL STYLES ============ */
+/* Set base font, background, and spacing behavior */
+body {
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+/* Keep sections centered with a wide desktop-friendly container */
+section,
+.navbar,
+.footer {
   width: 100%;
-  background-color: var(--panel);
-  color: var(--white);
-  padding: 1rem 0;
-  z-index: 1000;             /* Keep nav on top of other content */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-  border-bottom: 2px solid var(--accent);
 }
 
-/* Container for nav content */
-.nav-container {
+/* ============ HEADER & NAVIGATION ============ */
+/* Sticky header so nav remains visible while scrolling */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(246, 239, 223, 0.96);
+  border-bottom: 1px solid rgba(31, 58, 46, 0.18);
+  backdrop-filter: blur(3px);
+}
+
+/* Horizontal navigation layout */
+.navbar {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
 }
 
-/* Logo styling */
-.logo {
+/* Serif site title for editorial tone */
+.site-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.7rem;
+  color: var(--forest);
+  letter-spacing: 0.02em;
+}
+
+/* Right-side nav links row */
+.nav-links {
+  list-style: none;
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
-  font-weight: bold;
+  gap: 1.4rem;
 }
 
-/* Icon next to logo */
-.logo-icon {
-  margin-right: 0.5rem;
-  font-size: 1.8rem;
-}
-
-/* Navigation links list */
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-}
-
-/* Individual navigation link */
+/* Standard nav links */
 .nav-links a {
-  color: var(--muted);
   text-decoration: none;
-  transition: color 0.3s ease;
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 
-/* Navigation link hover effect */
 .nav-links a:hover {
-  color: var(--accent);
+  color: var(--forest);
 }
 
-/* ============ MAIN CONTENT CONTAINER ============ */
-/* Container class for consistent width and centering */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Mustard rounded CTA pill */
+.cta-pill {
+  background-color: var(--mustard);
+  color: var(--ink) !important;
+  padding: 0.65rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  border: 2px solid var(--ink);
 }
 
 /* ============ HERO SECTION ============ */
-/* Main banner section with large heading */
+/* Large opening section with layered typography and blocks */
 .hero {
-  background: linear-gradient(135deg, #141c2d, #0f1624);
-  color: var(--accent);
-  padding-top: 100px;        /* Account for fixed navbar */
-  padding-bottom: 4rem;
-  text-align: center;
-  border-bottom: 3px solid var(--accent);
-}
-
-/* Hero content wrapper */
-.hero-content {
-  display: flex;
-  flex-direction: column;    /* Stack image and text vertically */
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  max-width: 1200px;
+  /* `position: relative` lets absolutely positioned children
+     (like stars, overlays, and outline text) use this box as their anchor */
+  position: relative;
+  min-height: 660px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 2rem;
-  flex-wrap: wrap;           /* Stack on smaller screens */
+  padding: 5.5rem 2.5rem 3rem;
+  overflow: hidden;
 }
 
-/* Hero image styling */
-.hero-image {
-  flex: 1;
-  min-width: 200px;
+/* Repeated outlined typography behind title */
+.hero-outline {
+  /* Absolute positioning places this text freely inside `.hero` */
+  position: absolute;
+  top: 130px;
+  left: 2.5rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 7.2rem;
+  font-weight: 700;
+  color: transparent;
+  /* This creates outline-only text (no fill), great for editorial depth */
+  -webkit-text-stroke: 1.5px rgba(31, 58, 46, 0.35);
+  letter-spacing: 0.04em;
+  z-index: 1;
+  white-space: nowrap;
 }
 
-.hero-image img {
-  margin-top: 1rem;
-  max-width: 250px;
+.hero-outline.second {
+  top: 222px;
+  left: 4.2rem;
+  -webkit-text-stroke: 1.5px rgba(31, 58, 46, 0.22);
+}
+
+/* Main hero title */
+.hero-title {
+  /* Keep title above decorative layers */
+  position: relative;
+  z-index: 3;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 8rem;
+  line-height: 0.95;
+  color: var(--forest);
+  letter-spacing: 0.03em;
+  max-width: 900px;
+}
+
+/* Compact social handles in top right */
+.social-handles {
+  /* Pin social text to the top-right corner of the hero area */
+  position: absolute;
+  top: 105px;
+  right: 2.5rem;
+  z-index: 4;
+  text-align: right;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--forest);
+}
+
+/* Decorative dark green horizontal band */
+.green-band {
+  /* Full-width decorative band behind the title */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 330px;
+  height: 165px;
+  background-color: var(--forest);
+  z-index: 2;
+}
+
+/* Translucent burnt orange overlay crossing the band */
+.orange-overlay {
+  /* Semi-transparent overlay to create layered color effect */
+  position: absolute;
+  right: 180px;
+  top: 258px;
+  width: 340px;
+  height: 300px;
+  background-color: rgba(185, 105, 57, 0.65);
+  z-index: 3;
+  overflow: hidden;
+}
+
+.overlay-photo {
+  /* Fill the overlay with an actual image while keeping proportions */
   width: 100%;
-  border-radius: 50%;        /* Make image circular */
-  border: 4px solid var(--accent);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.86;
 }
 
-/* Hero text content */
-.hero-text {
-  flex: 1;
-  min-width: 250px;
-}
-
-/* Large heading with name */
-.hero-text h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  font-weight: bold;
-}
-
-/* Tagline under name */
-.tagline {
-  font-size: 1.2rem;
-  color: var(--white);
-}
-
-/* ============ ABOUT SECTION ============ */
-/* Player biography section */
-.about {
-  background-color: var(--panel);
-  padding: 4rem 2rem;
-  border-top: 3px solid var(--accent);
-}
-
-/* About section heading */
-.about h2 {
-  color: var(--accent);
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-/* About content wrapper */
-.about-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* "Game On!" greeting */
-.bio-intro {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: var(--accent);
-  margin-bottom: 1rem;
-}
-
-/* Bio paragraph text */
-.bio-text {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: var(--muted);
-  text-align: justify;
-}
-
-/* ============ SKILLS SECTION ============ */
-/* Technical skills display */
-.skills {
-  background-color: var(--bg);
-  padding: 4rem 2rem;
-  border-top: 3px solid var(--accent);
-}
-
-/* Skills section heading */
-.skills h2 {
-  color: var(--accent);
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-/* Skills list container */
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  list-style: none;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-/* Individual skill item styling */
-.skill-item {
-  background-color: transparent;
-  color: var(--accent);
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: bold;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-  border: 2px solid var(--accent);
-  box-shadow: 0 0 10px rgba(212, 165, 116, 0.3);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-/* Icon styling within skill items */
-.skill-item i {
+/* Decorative mustard stars */
+.star {
+  /* Shared style for decorative star icons */
+  position: absolute;
+  color: var(--mustard);
   font-size: 1.8rem;
-  transition: transform 0.2s ease;
+  z-index: 4;
 }
 
-/* Skill text styling */
-.skill-item span {
+.star-one {
+  top: 180px;
+  right: 420px;
+}
+
+.star-two {
+  top: 420px;
+  left: 220px;
+}
+
+.star-three {
+  top: 510px;
+  right: 320px;
+}
+
+/* Circular mustard scroll badge between hero and intro */
+.scroll-badge {
+  /* Center this circle using left: 50% + translateX(-50%) */
+  position: absolute;
+  left: 50%;
+  bottom: -42px;
+  transform: translateX(-50%);
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  background-color: var(--mustard);
+  border: 3px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--ink);
+  z-index: 9;
+}
+
+/* ============ INTRO SECTION ============ */
+/* Two-column section: text on left, stacked cards on right */
+.intro {
+  /* Flexbox makes an easy 2-column layout for desktop */
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 7rem 2.5rem 5rem;
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+/* Left intro text column */
+.intro-left {
+  flex: 1;
+  min-width: 320px;
+}
+
+/* Small uppercase section label */
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--forest);
+  margin-bottom: 0.8rem;
+}
+
+/* Bold serif intro heading */
+.intro-left h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 3rem;
+  line-height: 1.1;
+  color: var(--forest);
+  margin-bottom: 1rem;
+}
+
+/* Intro bio text in clean sans-serif */
+.intro-bio {
+  max-width: 540px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+/* Rounded search-style link button */
+.search-link {
+  margin-top: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--forest);
+  font-weight: 600;
+  border: 2px solid rgba(31, 58, 46, 0.3);
+  border-radius: 999px;
+  padding: 0.75rem 1.1rem;
+  background-color: rgba(255, 255, 255, 0.52);
+}
+
+.search-link:hover {
+  border-color: var(--forest);
+}
+
+/* Right side layered card stack container */
+.intro-right {
+  /* Relative parent so stacked cards can be absolutely placed inside */
+  flex: 1;
+  min-width: 320px;
+  position: relative;
+  min-height: 490px;
+}
+
+/* Shared rectangle card style */
+.card-layer {
+  /* Absolute positioning helps us overlap each rectangle */
+  position: absolute;
+  width: 280px;
+  height: 350px;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+}
+
+/* Back card */
+.layer-back {
+  top: 8px;
+  right: 110px;
+  background-color: #2b4d3f;
+}
+
+/* Middle card */
+.layer-middle {
+  top: 26px;
+  right: 80px;
+  background-color: #305745;
+}
+
+/* Front card with date tag */
+.layer-front {
+  top: 44px;
+  right: 50px;
+  background-color: #37614e;
+  border-color: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+/* Profile photo inside the front card */
+.card-photo {
+  /* Make the image fill the card box */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Mustard date label tag */
+.date-tag {
+  /* This sits inside the front card at the top-left */
+  position: absolute;
+  top: 14px;
+  left: 12px;
+  background-color: var(--mustard);
+  color: var(--ink);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+}
+
+/* Overlapping black contact card */
+.contact-card {
+  /* Overlap the contact card over the stacked green rectangles */
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 335px;
+  background-color: #101010;
+  color: var(--white);
+  border-radius: 14px;
+  padding: 1.2rem;
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.2);
+}
+
+.contact-card h3 {
+  font-family: Georgia, 'Times New Roman', serif;
+  margin-bottom: 0.5rem;
+  font-size: 1.35rem;
+}
+
+.contact-card p {
+  font-size: 0.92rem;
+  color: #ececec;
+}
+
+/* ============ RESUME BAND ============ */
+/* Full-width dark green section for education and technical skills */
+.resume-band {
+  /* Relative container so background outline text can be positioned */
+  position: relative;
+  background-color: var(--forest);
+  color: var(--white);
+  padding: 4.5rem 2.5rem;
+  overflow: hidden;
+}
+
+/* Outline RESUME text in the background */
+.resume-outline {
+  /* Decorative background word behind real content */
+  position: absolute;
+  top: 10px;
+  left: 2.5rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 8rem;
+  color: transparent;
+  -webkit-text-stroke: 1.4px rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.05em;
+  z-index: 1;
+}
+
+/* Two columns inside the resume band */
+.resume-columns {
+  /* Use flex to split Education and Technical skills side by side */
+  position: relative;
+  z-index: 3;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2.8rem;
+}
+
+.resume-left,
+.resume-right {
+  flex: 1;
+}
+
+.resume-left h3,
+.resume-right h3 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2.1rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Education list with year bullets */
+.year-list {
+  list-style: none;
+}
+
+.year-list li {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #edf2ec;
+}
+
+.year-list span {
+  display: inline-block;
+  min-width: 62px;
+  font-weight: 700;
+  color: var(--mustard);
+}
+
+/* Subheadings for skill groups */
+.resume-right h4 {
+  margin-top: 0.9rem;
+  margin-bottom: 0.45rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f3eee2;
+}
+
+/* Tiny dotted separator lines */
+.dot-line {
+  /* Dotted divider line for section separation */
+  border-top: 2px dotted rgba(255, 255, 255, 0.45);
+  margin-bottom: 0.9rem;
+}
+
+/* Software skill row */
+.software-icons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.software-icons span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   font-size: 0.95rem;
 }
 
-/* Skill item hover effect */
-.skill-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(212, 165, 116, 0.6), 0 4px 14px rgba(0, 0, 0, 0.35);
-  background-color: rgba(197, 155, 61, 0.12);
+/* Coding skill text row */
+.coding-list {
+  letter-spacing: 0.03em;
+  margin-bottom: 1.1rem;
 }
 
-/* Icon animation on hover */
-.skill-item:hover i {
-  transform: scale(1.2) rotate(5deg);
-}
-
-/* ============ PROJECTS SECTION ============ */
-/* Portfolio projects showcase */
-.projects {
-  background-color: var(--panel);
-  padding: 4rem 2rem;
-  border-top: 3px solid var(--accent);
-}
-
-/* Projects section heading */
-.projects h2 {
-  color: var(--accent);
-  font-size: 2rem;
-  margin-bottom: 3rem;
-  text-align: center;
-}
-
-/* Grid layout for project cards */
-.projects-grid {
+/* Rounded dark tags for specialties */
+.skill-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  max-width: 1200px;
+  gap: 0.7rem;
+}
+
+.skill-tags span {
+  background-color: #111111;
+  color: #f3f3f3;
+  padding: 0.42rem 0.78rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ============ EXPERIENCE SECTION ============ */
+/* Large mustard card with timeline and action pills */
+.experience {
+  max-width: 1280px;
   margin: 0 auto;
+  padding: 5rem 2.5rem 3rem;
 }
 
-/* Individual project card */
-.project-card {
-  background-color: var(--bg);
-  border: 2px solid var(--accent);
-  border-radius: 8px;
+.experience-card {
+  background-color: var(--mustard);
+  border: 2px solid var(--ink);
+  border-radius: 28px;
   padding: 2rem;
+}
+
+.experience-card h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 3rem;
+  color: var(--ink);
+  margin-bottom: 1.2rem;
+}
+
+/* Single timeline row */
+.timeline-item {
+  /* Left border creates a simple vertical timeline look */
+  display: flex;
+  gap: 1.2rem;
+  padding: 0.95rem 0;
+  border-left: 3px solid rgba(18, 18, 18, 0.4);
+  margin-left: 0.4rem;
+  padding-left: 1rem;
+}
+
+.timeline-year {
+  min-width: 58px;
+  font-weight: 800;
+  color: var(--forest-dark);
+}
+
+.timeline-item h4 {
+  font-size: 1.05rem;
+  margin-bottom: 0.2rem;
+}
+
+.timeline-item p {
+  color: #2f2b24;
+}
+
+/* Action buttons at the bottom of experience card */
+.experience-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.dark-pill {
+  text-decoration: none;
+  background-color: #111111;
+  color: #ffffff;
+  padding: 0.7rem 1.05rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+/* ============ LOWER INFO GRID ============ */
+/* Three-column lower content area */
+.info-grid {
+  /* 3 cards in a row on desktop using flexbox */
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 2.5rem 4.5rem;
+  display: flex;
+  gap: 1.2rem;
+}
+
+.info-grid article {
   flex: 1;
-  min-width: 280px;
-  max-width: 350px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 15px rgba(212, 165, 116, 0.3);
+  min-width: 220px;
+  background-color: #fff8ea;
+  border: 1px solid rgba(31, 58, 46, 0.2);
+  border-radius: 14px;
+  padding: 1.2rem;
 }
 
-/* Project card hover effect */
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 25px rgba(212, 165, 116, 0.7), 0 8px 20px rgba(0, 0, 0, 0.35);
+.info-grid h3 {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--forest);
+  font-size: 1.45rem;
+  margin-bottom: 0.4rem;
 }
 
-/* Project card header */
-.project-header {
-  margin-bottom: 1rem;
-  border-bottom: 2px solid var(--accent);
-  padding-bottom: 1rem;
+/* Dotted divider variant for light cards */
+.dot-line.light {
+  border-top: 2px dotted rgba(31, 58, 46, 0.35);
+  margin-bottom: 0.9rem;
 }
 
-/* Project title */
-.project-card h3 {
-  color: var(--accent);
-  font-size: 1.3rem;
-}
-
-/* Project description text */
-.project-description {
+.info-grid p {
+  margin-bottom: 0.4rem;
   color: var(--muted);
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-  min-height: 80px;
+  font-size: 0.98rem;
 }
 
-/* ============ BUTTONS ============ */
-/* "View Project" button styling */
-.btn {
-  display: inline-block;
-  background-color: transparent;
-  color: var(--accent);
-  padding: 0.75rem 1.5rem;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
-  border: 2px solid var(--accent);
+/* Small outlined accent icons */
+.info-grid i {
+  color: var(--mustard);
+  margin-right: 0.45rem;
 }
 
-/* Button hover effect */
-.btn:hover {
-  background-color: rgba(197, 155, 61, 0.1);
-  color: var(--white);
-  box-shadow: 0 0 12px rgba(197, 155, 61, 0.4);
-}
-
-/* ============ CONTACT SECTION ============ */
-/* Contact information section */
-.contact {
-  background-color: var(--bg);
-  padding: 4rem 2rem;
-  text-align: center;
-  border-top: 3px solid var(--accent);
-}
-
-/* Contact section heading */
-.contact h2 {
-  color: var(--accent);
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-/* Contact paragraph text */
-.contact p {
-  color: var(--muted);
-  margin-bottom: 1rem;
-  font-size: 1rem;
-}
-
-/* Contact info with email link */
-.contact-info {
-  font-size: 1.1rem;
-  font-weight: bold;
-}
-
-/* Email link styling */
-.contact-info a {
-  color: var(--accent);
-  text-decoration: none;
-  border-bottom: 2px solid var(--accent);
-}
-
-.contact-info a:hover {
-  color: var(--white);
+.info-grid article:nth-child(2) i,
+.info-grid article:nth-child(3) i {
+  color: var(--coral);
 }
 
 /* ============ FOOTER ============ */
-/* Page footer */
+/* Minimal footer with forest tone */
 .footer {
-  background-color: var(--panel);
-  color: var(--accent);
-  padding: 2rem;
+  background-color: var(--forest);
+  color: #f4efdf;
   text-align: center;
+  padding: 1.2rem;
   font-size: 0.9rem;
-  border-top: 2px solid var(--accent);
 }
 
 /* ============ RESPONSIVE DESIGN ============ */
-/* Styles for tablets and small screens */
-@media (max-width: 768px) {
-  /* Adjust navbar for mobile */
-  .nav-links {
-    gap: 1rem;
-    font-size: 0.9rem;
+/* Tablet layout adjustments */
+@media (max-width: 992px) {
+  /* Tablet breakpoint:
+     - stack large columns vertically
+     - reduce giant text and spacing */
+  .navbar {
+    padding: 1rem 1.4rem;
   }
-  
-  /* Stack hero content vertically on mobile */
-  .hero-content {
-    gap: 1.5rem;
+
+  .hero {
+    padding: 5rem 1.4rem 3rem;
+    min-height: 620px;
   }
-  
-  .hero-text h1 {
-    font-size: 2rem;
+
+  .hero-outline {
+    font-size: 5.2rem;
+    left: 1.4rem;
   }
-  
-  .tagline {
-    font-size: 1rem;
+
+  .hero-outline.second {
+    left: 2.6rem;
+    top: 210px;
   }
-  
-  /* Adjust heading sizes */
-  .about h2,
-  .skills h2,
-  .projects h2,
-  .contact h2 {
-    font-size: 1.5rem;
+
+  .hero-title {
+    font-size: 6rem;
   }
-  
-  /* Adjust padding for smaller screens */
-  .container {
-    padding: 1.5rem;
+
+  .orange-overlay {
+    right: 80px;
+    width: 280px;
   }
-  
-  /* Project cards take full width on mobile */
-  .project-card {
-    max-width: 100%;
-    min-width: 100%;
+
+  .intro,
+  .resume-columns,
+  .info-grid {
+    flex-direction: column;
+  }
+
+  .intro {
+    padding: 6.5rem 1.4rem 4rem;
+  }
+
+  .intro-right {
+    width: 100%;
+    min-height: 460px;
+  }
+
+  .card-layer {
+    right: auto;
+    left: 20%;
+  }
+
+  .layer-back {
+    top: 8px;
+  }
+
+  .layer-middle {
+    top: 26px;
+  }
+
+  .layer-front {
+    top: 44px;
+  }
+
+  .contact-card {
+    right: 18%;
+  }
+
+  .resume-band,
+  .experience,
+  .info-grid {
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+  }
+
+  .resume-outline {
+    font-size: 5.5rem;
+    left: 1.4rem;
   }
 }
 
-/* Styles for very small screens (phones) */
-@media (max-width: 480px) {
-  /* Smaller heading on mobile */
-  .hero-text h1 {
-    font-size: 1.5rem;
-  }
-  
-  /* Adjust nav spacing */
-  .nav-container {
-    padding: 0 1rem;
-  }
-  
+/* Mobile layout adjustments */
+@media (max-width: 680px) {
+  /* Mobile breakpoint:
+     - reduce hero text size
+     - keep decorative elements visible but smaller
+     - stack timeline text for easier reading */
   .nav-links {
-    gap: 0.5rem;
-    font-size: 0.8rem;
+    gap: 0.7rem;
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
-  
-  .logo {
-    font-size: 1rem;
+
+  .site-title {
+    font-size: 1.35rem;
   }
-  
-  /* Adjust hero padding */
+
   .hero {
-    padding-top: 80px;
-    padding-bottom: 2rem;
+    min-height: 560px;
+    padding-top: 4.2rem;
   }
-  
-  /* Hide logo text on very small screens */
-  .logo-text {
-    display: none;
+
+  .hero-title {
+    font-size: 3.7rem;
+  }
+
+  .hero-outline {
+    font-size: 3.1rem;
+    top: 150px;
+    -webkit-text-stroke: 1px rgba(31, 58, 46, 0.25);
+  }
+
+  .hero-outline.second {
+    top: 200px;
+    left: 2rem;
+  }
+
+  .social-handles {
+    position: static;
+    text-align: left;
+    margin-top: 0.9rem;
+  }
+
+  .green-band {
+    top: 300px;
+    height: 140px;
+  }
+
+  .orange-overlay {
+    top: 250px;
+    right: 20px;
+    width: 200px;
+    height: 240px;
+  }
+
+  .star {
+    font-size: 1.25rem;
+  }
+
+  .star-one {
+    right: 200px;
+  }
+
+  .star-two {
+    left: 24px;
+    top: 430px;
+  }
+
+  .star-three {
+    right: 70px;
+    top: 500px;
+  }
+
+  .scroll-badge {
+    width: 92px;
+    height: 92px;
+    font-size: 0.75rem;
+  }
+
+  .intro-left h2,
+  .experience-card h2 {
+    font-size: 2.2rem;
+  }
+
+  .card-layer {
+    width: 230px;
+    height: 300px;
+    left: 10%;
+  }
+
+  .contact-card {
+    width: 280px;
+    right: 5%;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    gap: 0.2rem;
   }
 }
