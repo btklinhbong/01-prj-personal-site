@@ -363,18 +363,6 @@ section,
   overflow: hidden;
 }
 
-.layer-front::after {
-  /* Add a warm-green tint over the photo for stronger palette matching */
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 179, 0, 0.16) 0%,
-    rgba(7, 166, 94, 0.22) 100%
-  );
-  pointer-events: none;
-}
 
 /* Profile photo inside the front card */
 .card-photo {
