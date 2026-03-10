@@ -34,6 +34,11 @@ body {
   line-height: 1.6;
 }
 
+/* Prevent large images from overflowing small screens */
+img {
+  max-width: 100%;
+}
+
 /* Keep sections centered with a wide desktop-friendly container */
 section,
 .navbar,
@@ -673,6 +678,13 @@ section,
      - reduce giant text and spacing */
   .navbar {
     padding: 1rem 1.4rem;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    row-gap: 0.6rem;
   }
 
   .hero {
@@ -754,35 +766,49 @@ section,
      - reduce hero text size
      - keep decorative elements visible but smaller
      - stack timeline text for easier reading */
+  .navbar {
+    padding: 0.9rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+  }
+
   .nav-links {
+    width: 100%;
     gap: 0.7rem;
     font-size: 0.85rem;
     flex-wrap: wrap;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
 
   .site-title {
     font-size: 1.35rem;
   }
 
+  .cta-pill {
+    padding: 0.5rem 0.9rem;
+  }
+
   .hero {
-    min-height: 560px;
-    padding-top: 4.2rem;
+    min-height: 650px;
+    padding: 3.8rem 1rem 3rem;
   }
 
   .hero-title {
-    font-size: 3.7rem;
+    font-size: 3rem;
+    max-width: 100%;
   }
 
   .hero-outline {
-    font-size: 3.1rem;
-    top: 150px;
+    font-size: 2.8rem;
+    top: 138px;
+    left: 1rem;
     -webkit-text-stroke: 1px rgba(31, 58, 46, 0.25);
   }
 
   .hero-outline.second {
-    top: 200px;
-    left: 2rem;
+    top: 182px;
+    left: 1.6rem;
   }
 
   .social-handles {
@@ -792,15 +818,15 @@ section,
   }
 
   .green-band {
-    top: 300px;
-    height: 140px;
+    top: 320px;
+    height: 130px;
   }
 
   .orange-overlay {
-    top: 250px;
-    right: 20px;
-    width: 200px;
-    height: 240px;
+    top: 270px;
+    right: 12px;
+    width: 170px;
+    height: 205px;
   }
 
   .star {
@@ -833,9 +859,23 @@ section,
   }
 
   .scroll-badge {
-    width: 92px;
-    height: 92px;
+    width: 84px;
+    height: 84px;
     font-size: 0.75rem;
+    bottom: -36px;
+  }
+
+  .intro {
+    padding: 6rem 1rem 3.5rem;
+  }
+
+  .intro-left,
+  .intro-right {
+    min-width: 0;
+  }
+
+  .intro-right {
+    min-height: 560px;
   }
 
   .intro-left h2,
@@ -844,18 +884,30 @@ section,
   }
 
   .card-layer {
-    width: 230px;
-    height: 300px;
-    left: 10%;
+    width: 210px;
+    height: 280px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .contact-card {
-    width: 280px;
-    right: 5%;
+    width: min(92%, 320px);
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+
+  .experience-card {
+    padding: 1.25rem;
   }
 
   .timeline-item {
     flex-direction: column;
     gap: 0.2rem;
+    padding-left: 0.75rem;
+  }
+
+  .info-grid article {
+    min-width: 0;
   }
 }
