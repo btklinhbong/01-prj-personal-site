@@ -182,7 +182,7 @@ section,
   top: 258px;
   width: 340px;
   height: 300px;
-  background-color: rgba(185, 105, 57, 0.65);
+  background-color: rgba(185, 105, 57, 0.90);
   z-index: 3;
   overflow: hidden;
 }
@@ -193,7 +193,9 @@ section,
   height: 100%;
   object-fit: cover;
   display: block;
-  opacity: 0.86;
+  opacity: 0.78;
+  /* Warm and soften the photo so it matches mustard/green theme */
+  filter: sepia(0.2) saturate(0.8) hue-rotate(-8deg) brightness(0.95);
 }
 
 /* Decorative mustard stars */
@@ -206,18 +208,28 @@ section,
 }
 
 .star-one {
-  top: 180px;
-  right: 420px;
+  top: 165px;
+  right: 500px;
 }
 
 .star-two {
-  top: 420px;
-  left: 220px;
+  top: 395px;
+  left: 165px;
 }
 
 .star-three {
-  top: 510px;
-  right: 320px;
+  top: 528px;
+  right: 265px;
+}
+
+.star-four {
+  top: 255px;
+  left: 85px;
+}
+
+.star-five {
+  top: 305px;
+  right: 120px;
 }
 
 /* Circular mustard scroll badge between hero and intro */
@@ -346,6 +358,19 @@ section,
   overflow: hidden;
 }
 
+.layer-front::after {
+  /* Add a warm-green tint over the photo for stronger palette matching */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 179, 0, 0.16) 0%,
+    rgba(7, 166, 94, 0.22) 100%
+  );
+  pointer-events: none;
+}
+
 /* Profile photo inside the front card */
 .card-photo {
   /* Make the image fill the card box */
@@ -353,6 +378,8 @@ section,
   height: 100%;
   object-fit: cover;
   display: block;
+  /* Add a light warm tint so this photo also matches the site palette */
+  filter: sepia(0.24) saturate(0.78) hue-rotate(-10deg) brightness(0.94);
 }
 
 /* Mustard date label tag */
@@ -781,17 +808,28 @@ section,
   }
 
   .star-one {
-    right: 200px;
+    top: 170px;
+    right: 190px;
   }
 
   .star-two {
-    left: 24px;
-    top: 430px;
+    left: 16px;
+    top: 410px;
   }
 
   .star-three {
-    right: 70px;
-    top: 500px;
+    right: 54px;
+    top: 485px;
+  }
+
+  .star-four {
+    top: 248px;
+    left: 26px;
+  }
+
+  .star-five {
+    right: 16px;
+    top: 338px;
   }
 
   .scroll-badge {
