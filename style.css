@@ -11,6 +11,11 @@
   box-sizing: border-box;
 }
 
+/* Smoothly scroll to sections when nav links are clicked */
+html {
+  scroll-behavior: smooth;
+}
+
 /* ============ COLOR & TYPOGRAPHY VARIABLES ============ */
 /* Define the requested two-tone base and accent colors */
 :root {
@@ -310,9 +315,10 @@ section,
 /* Rounded search-style link button */
 .search-link {
   margin-top: 1.6rem;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 0.6rem;
+  width: fit-content;
   text-decoration: none;
   color: var(--forest);
   font-weight: 600;
